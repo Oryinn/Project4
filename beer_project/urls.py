@@ -19,6 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.FrontendAppView.as_view()), #Index Route
     path('api/v1/', include('beer_app.urls')),
+    path('', views.FrontendAppView.as_view()), #Index Route
 ]

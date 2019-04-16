@@ -83,10 +83,14 @@ WSGI_APPLICATION = 'beer_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'beer_app',
+        'USER': 'beer_user',
+        'PASSWORD': 'beer',
+        'HOST': 'localhost'
     }
 }
+
 
 
 # Password validation
@@ -129,3 +133,9 @@ STATIC_URL = '/static/'
 
 import django_heroku
 django_heroku.settings(locals())
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    )
+}

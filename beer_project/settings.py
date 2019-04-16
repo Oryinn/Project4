@@ -84,8 +84,8 @@ WSGI_APPLICATION = 'beer_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'beer_app',
-        'USER': 'beer_user',
+        'NAME': 'beers',
+        'USER': 'jordan',
         'PASSWORD': 'beer',
         'HOST': 'localhost'
     }

@@ -1,0 +1,38 @@
+[
+    {
+      "model": "beer_app.beer",
+      "fk": 1,
+      "fields": {
+        "name": "Budweiser",
+        "description": "The King of beers.",
+        "abv": "5.0"
+      }
+    },
+    {
+      "model": "beer_app.beer",
+      "fk": 2,
+      "fields": {
+        "name": "Miller Lite",
+        "description": "A fine pilsner beer.",
+        "abv": "4.2"
+      }
+    },
+    {
+      "model": "beer_app.beer",
+      "fk": 3,
+      "fields": {
+        "name": "Sweetwater 420",
+        "description": "Woohoo, go Atlanta!",
+        "abv": "5.7"
+      }
+    },
+    {
+      "model": "beer_app.beer",
+      "fk": 4,
+      "fields": {
+        "name": "Natural Light",
+        "description": "Technically it's a beer.",
+        "abv": "4.2"
+      }
+    }
+  ]

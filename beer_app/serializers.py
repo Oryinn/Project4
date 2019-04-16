@@ -5,7 +5,7 @@ from .models import User, Beer, Review
 class BeerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Beer
-        fields = ('name', 'description', 'abv')
+        fields = ('name', 'description', 'abv', 'style')
 
 class ReviewSerializer(serializers.ModelSerializer):
     beer = BeerSerializer(many=True, read_only=True)

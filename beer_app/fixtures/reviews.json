@@ -5,7 +5,8 @@
         "beer": 1,
         "title": "Good Beer!!!",
         "content": "Seriously i love it so much i cant stop drinking it someone please help me.",
-        "rating": "5"
+        "rating": "5",
+        "author": 1
       }
     },
     {
@@ -14,7 +15,9 @@
         "beer": 2,
         "title": "Miller Lite review",
         "content": "It is definitely a fine pilsner beer.",
-        "rating": "4"
+        "rating": "4",
+        "author": 1
+
       }
     },
     {
@@ -23,7 +26,9 @@
         "beer": 3,
         "title": "Sweetwater 420",
         "content": "The owners of this brewery are huge stoners if that wasn't obvious enough already.",
-        "rating": "5"
+        "rating": "5",
+        "author": 2
+
       }
     },
     {
@@ -32,7 +37,9 @@
         "beer": 4,
         "title": "Natural Light brings me back to college, in a bad way",
         "content": "I hate myself.",
-        "rating": "2"
+        "rating": "2",
+        "author": 2
+
       }
     }
   ]

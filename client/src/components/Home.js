@@ -18,6 +18,7 @@ export default class Home extends Component {
         try {
             const res = await axios.get('/api/v1/beers');
             this.setState({beers: res.data});
+            console.log(this.state.beers)
         }
         catch (err) {
             console.log(err)
@@ -29,6 +30,7 @@ export default class Home extends Component {
         try {
             const res = await axios.get('/api/v1/reviews');
             this.setState({reviews: res.data});
+            console.log(this.state.reviews)
         }
         catch (err) {
             console.log(err)

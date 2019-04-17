@@ -7,14 +7,14 @@ class BeerSerializer(serializers.ModelSerializer):
         model = Beer
         fields = ('name', 'description', 'abv', 'style')
 
-class ReviewSerializer(serializers.ModelSerializer):
-    beer = BeerSerializer(many=True, read_only=True)
-    class Meta:
-        model = Review
-        fields = ('beer', 'title', 'content', 'rating')
-
 class UserSerializer(serializers.ModelSerializer):
-    reviews = ReviewSerializer(many=True, read_only=True)
     class Meta:
         model = User
         fields = ('username', 'password', 'email', 'image_link', 'reviews')
+
+class ReviewSerializer(serializers.ModelSerializer):
+    beer = BeerSerializer(many=False, read_only=True)
+    author = UserSerializer(many=False, read_only=True)
+    class Meta:
+        model = Review
+        fields = ('beer', 'title', 'content', 'rating', 'author')

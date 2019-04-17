@@ -5,8 +5,7 @@
             "username": "Sam",
             "email": "sam@gmail.com",
             "password": "samuel",
-            "image_link": "http://www.placecage.com/150/150",
-            "reviews": 4
+            "image_link": "http://www.placecage.com/150/150"
         }
     },
     {
@@ -15,8 +14,7 @@
             "username": "Lindsey",
             "email": "lindsey@gmail.com",
             "password": "lindsey",
-            "image_link": "http://www.placecage.com/150/160",
-            "reviews": 1
+            "image_link": "http://www.placecage.com/150/160"
         }
     }
 ]

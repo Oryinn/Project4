@@ -12,22 +12,22 @@ class Beer(models.Model):
     def __str__(self):
         return self.name
 
-class Review(models.Model):
-    beer = models.ForeignKey(Beer, on_delete=models.CASCADE, related_name='beers')
-    title = models.CharField(max_length=64)
-    content = models.CharField(max_length=600)
-    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
-    
-    def __str__(self):
-        return self.title
-
 class User(models.Model):
     username = models.CharField(max_length=255)
     email = models.EmailField(max_length=64)
     password = models.CharField(max_length=400)
     image_link = models.CharField(max_length=255)
-    reviews = models.ForeignKey(Review, on_delete=models.CASCADE, related_name='reviews')
 
     def __str__(self):
         return self.username
+        
+class Review(models.Model):
+    beer = models.ForeignKey(Beer, on_delete=models.CASCADE, related_name='beers')
+    title = models.CharField(max_length=64)
+    content = models.CharField(max_length=600)
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
+    def __str__(self):
+        return self.title
+
         

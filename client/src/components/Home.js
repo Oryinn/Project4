@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 export default class Home extends Component {
     state = {
@@ -16,7 +16,10 @@ export default class Home extends Component {
 
     fetchBeers = async () => {
         try {
-            const res = await axios.get('/api/v1/beers');
+            const res = await axios.get('https://sandbox-api.brewerydb.com/v2/beers?key=APIKEY?format=json', {
+                method: 'HEAD',
+		        mode: 'no-cors',
+            });
             this.setState({beers: res.data});
             console.log(this.state.beers)
         }
@@ -44,12 +47,12 @@ export default class Home extends Component {
     }
     return (
         <div>
-            <h1>All Beers</h1>
             {this.state.beers.map(beer => (
                 <div key={beer.id}>
-                    <Link to={`/beers/${beer.id}`} >{beer.name}</Link>
+                    <Link to={`/beers/${beer.id}`} >{beer.data.name}</Link>
                 </div>
             ))}
+            
         </div>
     )
   }

@@ -13,6 +13,8 @@ django-extensions = "*"
 djangorestframework = "*"
 gunicorn = "*"
 django-heroku = "*"
+django-cors-headers = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"

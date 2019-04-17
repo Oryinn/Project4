@@ -6,9 +6,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* background-image: url("https://image.freepik.com/free-photo/beer-background_1426-1238.jpg");
+  background-repeat: repeat-x; */
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.notNavigation {
+  margin-left: 1vw;
+  margin-right: 1vw;
 }

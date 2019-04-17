@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'beer_app',
+    'requests',
+
 ]
 
 MIDDLEWARE = [
@@ -55,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'beer_project.urls'
@@ -139,3 +142,4 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     )
 }
+

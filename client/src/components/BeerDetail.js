@@ -5,7 +5,6 @@ import AddReview from './AddReview'
 
 export default class BeerDetail extends Component {
   state = {
-    reviews: [],
     beerId: this.props.match.params.beerId,
     updateFormOpen: false,
     beer: {
@@ -13,6 +12,7 @@ export default class BeerDetail extends Component {
       description: '',
       abv: '',
       style: '',
+      reviews: [],
     },
     redirect: false,
     createFormOpen: false,
@@ -23,7 +23,7 @@ export default class BeerDetail extends Component {
     axios.get(`/api/v1/beers/${this.state.beerId}`).then(res => {
       this.setState({ beer: res.data })
     })
-
+  
   }
 
   handleCreateReviewForm = () => {
@@ -31,9 +31,9 @@ export default class BeerDetail extends Component {
     this.setState({ createFormOpen: addReviewView })
   }
 
-  addNewReviewToReviewList = (newShow) => {
+  addNewReviewToReviewList = (newReview) => {
     const newReviewList = [...this.state.reviews]
-    newReviewList.push(newShow)
+    newReviewList.push(newReview)
 
     this.setState({ reviews: newReviewList })
   }
@@ -45,6 +45,7 @@ export default class BeerDetail extends Component {
         <Button variant="primary" onClick={this.handleCreateReviewForm}>Add Review</Button>
         {this.state.createFormOpen
           ? <AddReview 
+            beerId = {this.props.match.params.beerId}
             beerName={this.state.beer.name}
             addNewReviewToReviewList={this.addNewReviewToReviewList}
             handleCreateReviewForm={this.handleCreateReviewForm}
@@ -52,6 +53,13 @@ export default class BeerDetail extends Component {
           : null}
         <h3>{this.state.beer.abv}% - {this.state.beer.style}</h3>
         <p>{this.state.beer.description}</p>
+        <hr />
+        {this.state.beer.reviews.map(review => (
+                <div key={review.id}>
+                    <h3>{review.title}</h3>
+                    <p>{review.content}</p>
+                </div>
+            ))}
       </div>
     )
   }

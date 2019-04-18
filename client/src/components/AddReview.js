@@ -5,7 +5,6 @@ import {Form} from 'react-bootstrap'
 export default class AddReview extends Component {
     state = {
         newReview: {
-            beer: '',
             title: '',
             content: '',
             rating: '',
@@ -18,13 +17,14 @@ export default class AddReview extends Component {
 
     componentDidMount(){
         this.fetchUsers();
-        
     }
 
     fetchUsers = async () => {
         try {
             const res = await axios.get('/api/v1/users');
-            this.setState({users: res.data, isLoaded: true});
+            const newReview = Object.assign({}, this.state.newReview, {author: res.data[0].id})
+            console.log('newReview is: ', newReview)
+            this.setState({users: res.data, isLoaded: true, newReview: newReview});
         }
         catch (err) {
             console.log(err)
@@ -47,11 +47,11 @@ export default class AddReview extends Component {
         this.props.addNewReviewToReviewList(this.state.newReview)
         axios
             .post('/api/v1/reviews/', {
-                beer: this.state.newReview.beer,
+                beer: parseInt(this.props.beerId),
                 title: this.state.newReview.title,
                 content: this.state.newReview.content,
                 rating: this.state.newReview.rating,
-                author: this.state.newReview.author
+                author: parseInt(this.state.newReview.author)
             }).then(() =>{
                 this.props.handleCreateReviewForm()
             })
@@ -63,14 +63,7 @@ export default class AddReview extends Component {
             {
                 this.state.isLoaded ?
                 <Form onSubmit={this.addNewReview}>
-                    <div>
-                        <input
-                            type='text'
-                            name="beer"
-                            placeholder="Beer"
-                            defaultValue={this.props.beerName}
-                        />
-                    </div>
+                    
                     <div>
                         <input
                             type='text'
@@ -101,11 +94,11 @@ export default class AddReview extends Component {
                         />
                     </div>
                     <div>
-                        <select name="author">
+                        <select name="author" value={this.state.users[0].id} onChange={this.handleNewReviewChange}>
                         {
                             this.state.users.map(user => {
                                 return (
-                                    <option value={user.id}>{user.username}</option>
+                                    <option value={user.id} key={user.id}>{user.username}</option>
                                 )
                             })
                         }

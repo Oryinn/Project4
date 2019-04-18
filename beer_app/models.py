@@ -22,7 +22,7 @@ class User(models.Model):
         return self.username
         
 class Review(models.Model):
-    beer = models.ForeignKey(Beer, on_delete=models.CASCADE, related_name='beer', null=True, blank=True)
+    beer = models.ForeignKey(Beer, on_delete=models.CASCADE, related_name='reviews', null=True, blank=True)
     title = models.CharField(max_length=64)
     content = models.CharField(max_length=600)
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])

@@ -16,7 +16,7 @@ export default class Home extends Component {
 
     fetchBeers = async () => {
         try {
-            const res = await axios.get('https://sandbox-api.brewerydb.com/v2/beers?key=APIKEY?format=json', {
+            const res = await axios.get('https://sandbox-api.brewerydb.com/v2/beers?key=APIKEY&?format=json', {
                 method: 'HEAD',
 		        mode: 'no-cors',
             });

@@ -1,1 +1,1 @@
-web: gunicorn beer_project.wsgi --log-file -
+web: gunicorn client.wsgi --log-file -

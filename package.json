@@ -1,7 +1,7 @@
 {
     "name": "project-4-beer-app",
     "scripts": {
-      "build": "cd client && npm install && npm run build && cd ..",
+      "build": "cd client/react && npm install && npm run build && cd ../..",
       "postinstall": "npm run build && echo 'Client built!'"
     }
   }

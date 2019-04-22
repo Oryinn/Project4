@@ -21,7 +21,7 @@ export default class BeerDetail extends Component {
 
   componentDidMount = () => {
 
-    axios.get(`/api/v1/beers/${this.state.beerId}`).then(res => {
+    axios.get(`/api/v1/beers/${this.state.beerId}/`).then(res => {
       this.setState({ beer: res.data })
     })
 

@@ -14,6 +14,7 @@ export default class NavigationBar extends Component {
             <Nav.Link href="/reviews">Reviews</Nav.Link>
             <Nav.Link href="/users">Users</Nav.Link>
             <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/signup">Sign Up</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

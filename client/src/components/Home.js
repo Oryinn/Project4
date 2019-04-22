@@ -16,7 +16,7 @@ export default class Home extends Component {
 
     fetchBeers = async () => {
         try {
-            const res = await axios.get('https://sandbox-api.brewerydb.com/v2/beers?key=APIKEY&?format=json', {
+            const res = await axios.get('/api/v1/beers', {
                 method: 'HEAD',
 		        mode: 'no-cors',
             });
@@ -49,7 +49,7 @@ export default class Home extends Component {
         <div>
             {this.state.beers.map(beer => (
                 <div key={beer.id}>
-                    <Link to={`/beers/${beer.id}`} >{beer.data.name}</Link>
+                    <Link to={`/beers/${beer.id}`} >{beer.name}</Link>
                 </div>
             ))}
             

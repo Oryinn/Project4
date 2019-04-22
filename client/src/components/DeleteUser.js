@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-export default class DeleteButton extends Component {
+
+export default class DeleteUser extends Component {
     state = {
-        reviewId: this.props.reviewId
+        userId: this.props.userId
     }
 
-    deleteReview = () => {
+    deleteUser = () => {
 
-        axios.delete(`/api/v1/reviews/${this.props.reviewId}/`)
+        axios.delete(`/api/v1/users/${this.props.userId}`)
             .then(res => {
                 this.setState({ redirect: true })
             })
@@ -19,7 +20,7 @@ export default class DeleteButton extends Component {
         return (<Redirect to="/" />)
     }
     return (
-      <Button variant="danger" onClick={this.deleteReview}>Delete </Button>
+      <Button variant="danger" onClick={this.deleteUser}>Delete User</Button>
     )
   }
 }

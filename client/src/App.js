@@ -9,7 +9,7 @@ import UserPage from "./components/UserPage"
 import LoginPage from "./components/LoginPage"
 import UserList from "./components/UserList"
 import EditReview from "./components/EditReview"
-
+import SignUp from "./components/SignUp"
 class App extends Component {
 
   
@@ -25,6 +25,7 @@ class App extends Component {
             <Route exact path="/reviews" component={RecentReviews} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/users" component={UserList} />
+            <Route exact path="/signup" component={SignUp} />
             <Route path="/beers/:beerId" component={BeerDetail} />
             <Route path="/users/:userId" component={UserPage} />
             <Route path="/reviews/:reviewId/edit" component={EditReview} />

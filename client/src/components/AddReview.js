@@ -21,7 +21,7 @@ export default class AddReview extends Component {
 
     fetchUsers = async () => {
         try {
-            const res = await axios.get('/api/v1/users');
+            const res = await axios.get('/api/v1/users/');
             const newReview = Object.assign({}, this.state.newReview, {author: res.data[0].id})
             console.log('newReview is: ', newReview)
             this.setState({users: res.data, isLoaded: true, newReview: newReview});
@@ -44,7 +44,6 @@ export default class AddReview extends Component {
 
     addNewReview = (evt) => {
         evt.preventDefault();
-        this.props.addNewReviewToReviewList(this.state.newReview)
         axios
             .post('/api/v1/reviews/', {
                 beer: parseInt(this.props.beerId),
@@ -52,8 +51,9 @@ export default class AddReview extends Component {
                 content: this.state.newReview.content,
                 rating: this.state.newReview.rating,
                 author: parseInt(this.state.newReview.author)
-            }).then(() =>{
+            }).then((res) =>{
                 this.props.handleCreateReviewForm()
+                this.props.addNewReviewToReviewList(res.data)
             })
             
     }

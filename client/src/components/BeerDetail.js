@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Button } from 'react-bootstrap'
 import AddReview from './AddReview'
+import { Redirect } from 'react-router-dom'
 
 export default class BeerDetail extends Component {
   state = {
@@ -23,7 +24,7 @@ export default class BeerDetail extends Component {
     axios.get(`/api/v1/beers/${this.state.beerId}`).then(res => {
       this.setState({ beer: res.data })
     })
-  
+
   }
 
   handleCreateReviewForm = () => {
@@ -32,20 +33,28 @@ export default class BeerDetail extends Component {
   }
 
   addNewReviewToReviewList = (newReview) => {
-    const newReviewList = [...this.state.reviews]
+    const newReviewList = [...this.state.beer.reviews]
     newReviewList.push(newReview)
+    const updatedReview = Object.assign({}, this.state.beer, { reviews: newReviewList })
+    this.setState({ beer: updatedReview })
+    
+  }
 
-    this.setState({ reviews: newReviewList })
+  updateStateOnReviewAdd = () => {
+
   }
 
   render() {
+    if (this.state.redirect) {
+      return (<Redirect to={`/beers/${this.state.beerId}`} />)
+    }
     return (
       <div>
         <h1>{this.state.beer.name}</h1>
         <Button variant="primary" onClick={this.handleCreateReviewForm}>Add Review</Button>
         {this.state.createFormOpen
-          ? <AddReview 
-            beerId = {this.props.match.params.beerId}
+          ? <AddReview
+            beerId={this.props.match.params.beerId}
             beerName={this.state.beer.name}
             addNewReviewToReviewList={this.addNewReviewToReviewList}
             handleCreateReviewForm={this.handleCreateReviewForm}
@@ -55,11 +64,11 @@ export default class BeerDetail extends Component {
         <p>{this.state.beer.description}</p>
         <hr />
         {this.state.beer.reviews.map(review => (
-                <div key={review.id}>
-                    <h3>{review.title}</h3>
-                    <p>{review.content}</p>
-                </div>
-            ))}
+          <div key={review.id}>
+            <h3>{review.title}</h3>
+            <p>{review.content}</p>
+          </div>
+        ))}
       </div>
     )
   }

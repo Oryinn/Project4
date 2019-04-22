@@ -46,7 +46,7 @@ export default class BeerDetail extends Component {
 
   render() {
     if (this.state.redirect) {
-      return (<Redirect to={`/beers/${this.state.beerId}`} />)
+      return (<Redirect to={`/beers/${this.state.beerId}/`} />)
     }
     return (
       <div>

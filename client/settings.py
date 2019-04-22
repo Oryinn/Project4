@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REACT_APP_DIR = os.path.join(BASE_DIR, '/client/react')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, REACT_APP_DIR, 'build', 'static')
+    os.path.join(REACT_APP_DIR, 'build', 'static')
 ]
 
 # Quick-start development settings - unsuitable for production

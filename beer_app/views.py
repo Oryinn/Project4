@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from .serializers import UserSerializer, BeerSerializer, ReviewSerializer
 from .models import User, Beer, Review
 from django.shortcuts import render
+import json
 import requests
 
 class UserView(viewsets.ModelViewSet):
@@ -19,10 +20,9 @@ class ReviewView(viewsets.ModelViewSet):
 
 
 def pull_beers(request):
-    response = requests.get('https://sandbox-api.brewerydb.com/v2/beers?key=API_KEY&?format=json')
-    response.json()
-    print(response)
-    return response
+    response = requests.get('https://sandbox-api.brewerydb.com/v2/beers?key=7c28ae5a9fdcaeacbc97eca785276cc8&?format=json')
+    json_dict = json.loads(response.text)
+    return JsonResponse(json_dict)
     # return response(requests, 'core/home.html', {
     #     'name': beers['data'][0]['name'],
     #     'description': beers['data'][0]['description'],

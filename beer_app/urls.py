@@ -9,7 +9,6 @@ router.register('reviews', views.ReviewView)
 
 
 urlpatterns = [
+    path('mybeers/', views.pull_beers, name="mybeer"),
     path('', include(router.urls)),
-    path('getBeers/', views.pull_beers),
-    
 ]

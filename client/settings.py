@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-REACT_APP_DIR = os.path.join(BASE_DIR, 'client')
+REACT_APP_DIR = os.path.join(BASE_DIR, '/client/react')
 
 STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build', 'static')
@@ -60,7 +60,7 @@ MIDDLEWARE = [
 
 ]
 
-ROOT_URLCONF = 'beer_project.urls'
+ROOT_URLCONF = 'client.urls'
 
 TEMPLATES = [
     {
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'beer_project.wsgi.application'
+WSGI_APPLICATION = 'client.wsgi.application'
 
 
 # Database

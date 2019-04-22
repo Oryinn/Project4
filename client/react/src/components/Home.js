@@ -49,7 +49,7 @@ export default class Home extends Component {
         <div>
             {this.state.beers.map(beer => (
                 <div key={beer.id}>
-                    <Link to={`/beers/${beer.id}`} >{beer.name}</Link>
+                    <Link to={`/beers/${beer.id}/`} >{beer.name}</Link>
                 </div>
             ))}
             

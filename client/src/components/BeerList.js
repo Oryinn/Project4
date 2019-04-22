@@ -13,7 +13,7 @@ export default class BeerList extends Component {
 
     fetchBeers = async () => {
         try {
-            const res = await axios.get('/api/v1/beers');
+            const res = await axios.get('/api/v1/beers/');
             this.setState({beers: res.data});
         }
         catch (err) {

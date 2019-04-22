@@ -10,7 +10,7 @@ export default class DeleteUser extends Component {
 
     deleteUser = () => {
 
-        axios.delete(`/api/v1/users/${this.props.userId}`)
+        axios.delete(`/api/v1/users/${this.props.userId}/`)
             .then(res => {
                 this.setState({ redirect: true })
             })

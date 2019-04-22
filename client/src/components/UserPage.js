@@ -16,7 +16,7 @@ export default class UserPage extends Component {
     }
 
     componentDidMount = () => {
-        axios.get(`/api/v1/users/${this.state.userId}`).then(res => {
+        axios.get(`/api/v1/users/${this.state.userId}/`).then(res => {
             this.setState({ user: res.data, isLoaded: true })
         })
         console.log(this.state.user)

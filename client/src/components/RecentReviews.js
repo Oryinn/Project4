@@ -13,7 +13,7 @@ export default class RecentReviews extends Component {
 
     fetchReviews = async () => {
         try {
-            const res = await axios.get('/api/v1/reviews');
+            const res = await axios.get('/api/v1/reviews/');
             this.setState({reviews: res.data});
             console.log(this.state.reviews)
         }

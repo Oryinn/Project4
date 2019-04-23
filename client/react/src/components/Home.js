@@ -47,8 +47,11 @@ export default class Home extends Component {
             <h1>Upcoming Beers</h1>
             {this.state.beers.map(beer => (
                 <div key={beer.id}>
-                    <p>{beer.name}</p>
+                    <p>{beer.name} - {beer.abv}%</p>
+                    <hr></hr>
+                    
                 </div>
+                
             ))}
             
         </div>

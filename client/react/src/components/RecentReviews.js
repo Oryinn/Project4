@@ -16,7 +16,6 @@ export default class RecentReviews extends Component {
         try {
             const res = await axios.get('/api/v1/reviews/');
             this.setState({reviews: res.data});
-            console.log(this.state.reviews)
         }
         catch (err) {
             console.log(err)

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
 
 export default class Home extends Component {
     state = {
@@ -32,7 +31,6 @@ export default class Home extends Component {
         try {
             const res = await axios.get('/api/v1/reviews/');
             this.setState({reviews: res.data});
-            console.log(this.state.reviews)
         }
         catch (err) {
             console.log(err)
@@ -44,7 +42,6 @@ export default class Home extends Component {
     if (this.state.error){
         return <div>{this.state.error}</div>
     }
-    console.log(this.state.beers);
     return (
         <div>
             <h1>Upcoming Beers</h1>

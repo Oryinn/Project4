@@ -23,7 +23,6 @@ export default class AddReview extends Component {
         try {
             const res = await axios.get('/api/v1/users/');
             const newReview = Object.assign({}, this.state.newReview, {author: res.data[0].id})
-            console.log('newReview is: ', newReview)
             this.setState({users: res.data, isLoaded: true, newReview: newReview});
         }
         catch (err) {

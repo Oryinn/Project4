@@ -19,7 +19,6 @@ export default class EditReview extends Component {
     }
 
     componentDidMount = () => {
-        console.log(this.state.reviewId)
         axios.get(`/api/v1/reviews/${this.state.reviewId}/`).then(res => {
             this.setState({ editReview: res.data, isLoaded: true })
           })

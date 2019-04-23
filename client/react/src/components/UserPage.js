@@ -19,9 +19,6 @@ export default class UserPage extends Component {
         axios.get(`/api/v1/users/${this.state.userId}/`).then(res => {
             this.setState({ user: res.data, isLoaded: true })
         })
-        console.log(this.state.user)
-        console.log(this.state.userId)
-
     }
 
 

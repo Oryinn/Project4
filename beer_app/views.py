@@ -20,7 +20,7 @@ class ReviewView(viewsets.ModelViewSet):
 
 
 def pull_beers(request):
-    response = requests.get('https://sandbox-api.brewerydb.com/v2/beers?key=7c28ae5a9fdcaeacbc97eca785276cc8&?format=json')
+    response = requests.get('https://sandbox-api.brewerydb.com/v2/beers?key=API_KEY&?format=json')
     json_dict = json.loads(response.text)
     return JsonResponse(json_dict)
 

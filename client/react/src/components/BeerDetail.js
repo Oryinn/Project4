@@ -40,9 +40,6 @@ export default class BeerDetail extends Component {
     
   }
 
-  updateStateOnReviewAdd = () => {
-
-  }
 
   render() {
     if (this.state.redirect) {
@@ -60,6 +57,7 @@ export default class BeerDetail extends Component {
             handleCreateReviewForm={this.handleCreateReviewForm}
           />
           : null}
+          {/* <Button variant="danger" onClick={this.} */}
         <h3>{this.state.beer.abv}% - {this.state.beer.style}</h3>
         <p>{this.state.beer.description}</p>
         <hr />

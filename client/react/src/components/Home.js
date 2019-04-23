@@ -16,12 +16,11 @@ export default class Home extends Component {
 
     fetchBeers = async () => {
         try {
-            const res = await axios.get('/api/v1/beers/', {
+            const res = await axios.get('/api/v1/mybeers/', {
                 method: 'HEAD',
 		        mode: 'no-cors',
             });
-            this.setState({beers: res.data});
-            console.log(this.state.beers)
+            this.setState({beers: res.data.data});
         }
         catch (err) {
             console.log(err)
@@ -45,11 +44,13 @@ export default class Home extends Component {
     if (this.state.error){
         return <div>{this.state.error}</div>
     }
+    console.log(this.state.beers);
     return (
         <div>
+            <h1>Upcoming Beers</h1>
             {this.state.beers.map(beer => (
                 <div key={beer.id}>
-                    <Link to={`/beers/${beer.id}/`} >{beer.name}</Link>
+                    <p>{beer.name}</p>
                 </div>
             ))}
             
